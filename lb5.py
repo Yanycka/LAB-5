@@ -1,27 +1,22 @@
 filename="mydata.txt"
 
 def write(filename):
-    # Відкриття файлу
-    fd = open(filename, "w") 
-    # Запис у файл
-    for i in range(10):     
-        A = i*18     
-        fd.write("%i\t%.1f\n" % (i, A)) 
-    # Закриття файлу
-    fd.close() 
+    fd = open(filename, "w")
+    for i in range(11):
+        A = i*10
+        fd.write("%i\t%.1f\n" % (i, A))
+    fd.close()
+    print("запис файлу виконано")
 
 import random
 
 filename="mydata.txt"
 
 def append(filename):
-    #Відкриття файлу
     fd=open(filename, "w")
-    #Запис у файл
-    for i in range(10):
-        A=random.uniform(2, 5)
-        fd.write("%\t%.lf\n"%(i,A))
-    #Закриття файлу
+    for i in range(11):
+        A=random.uniform(1, 5)
+        fd.write("%i\t%.1f\n"%(i, A))
     fd.close()
     print("дозапис у кінець файлу виконано")
 
@@ -31,30 +26,32 @@ import sys
 filename="mydata.txt"
 
 def read(filename):
-    # Відкриття файлу
-    fd = open(filename, "w") 
-    #Читання даних
+    fd = open(filename, "r") 
     reader=csv.reader(fd, delimiter="\t")
-    #Виведення зиісту файлу
     for row in reader:
         print(row)
-    #Закриття файлу
     fd.close()
     print("зчитування файлу виконано")
 
 import shutil
 import os
 
+filename="mydata.txt"
+
 def copy(filename):
-    shutil.copyfile("C:\\Users\\Яна\\Desktop\\gavno-fit\\ICS-485270\\lab5", "C:\\Users\\Яна\\Documents\\Documents")
+    shutil.copyfile("C:\\Users\\Яна\\Desktop\\gavno-fit\\ICS-485270\\lab5\\mydata.txt", "C:\\Users\\Яна\\Desktop\\gavno-fit\\ICS-485270\\lab5.txt")
     print("копіювання файлу виконано")
 
+filename="mydata.txt"
+
 def rename(filename):
-    os.rename("C:\\Users\\Яна\\Desktop\\gavno-fit\\ICS-485270\\mydata.txt", "lab5.txt")
+    os.rename("C:\\Users\\Яна\\Desktop\\gavno-fit\\ICS-485270\\lab5\\mydata.txt", "C:\\Users\\Яна\\Desktop\\gavno-fit\\ICS-485270\\lab5\\lab5.txt")
     print("перейменування файлу виконано") 
 
+filename="mydata.txt"
+
 def delete(filename):
-    os.remove("C:\\Users\\Яна\\Desktop\\gavno-fit\\ICS-485270\\mydata.txt")
+    os.remove("C:\\Users\\Яна\\Desktop\\gavno-fit\\ICS-485270\\lab5\\mydata.txt")
     print("видалення файлу виконано")
 
 filename = "mydata.txt"
@@ -75,5 +72,3 @@ elif x==6:
     copy(filename)
 else:
     print("такого варіанту не існує")    
-input('Press ENTER to exit')
-
